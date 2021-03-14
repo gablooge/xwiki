@@ -24,8 +24,6 @@ services:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_DB=${DB_DATABASE}
       - POSTGRES_INITDB_ARGS="--encoding=UTF8"
-    networks:
-      - bridge
     restart: unless-stopped
     volumes:
       - /opt/postgresql/data/12:/var/lib/postgresql/data
