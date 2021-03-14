@@ -71,6 +71,9 @@ RUN sed -i 's/<id>org.xwiki.platform:xwiki-platform-distribution-war/<id>org.xwi
 # CHMOD after a COPY will sometimes fail, depending on different host-specific factors (especially on AUFS).
 COPY xwiki/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
+RUN chmod 777 /usr/local/bin/docker-entrypoint.sh \
+    && ln -s /usr/local/bin/docker-entrypoint.sh /
+    
 # Make the XWiki directory (the permanent directory is included in it) persist on the host (so that it's not recreated
 # across runs)
 VOLUME /usr/local/xwiki
